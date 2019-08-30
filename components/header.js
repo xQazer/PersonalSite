@@ -11,7 +11,7 @@ const Main = styled.div`
   left:0;
   right:0;
 
-  background: ${props => props.scrollY > 0 ? "#ffffffee" : "#ffffff00" };
+  background: ${props => props.scrollY > 0 || props.isMenuOpen ? "#ffffffee" : "#ffffff00" };
   transition: background .5s;
   min-height: 64px;
 
@@ -23,11 +23,11 @@ const Main = styled.div`
   padding: 1px 32px;
 
   @media ${breakpoints.md} {
-    padding: 1px 92px;
+    padding: 1px 64px;
   }
 
   @media ${breakpoints.lg} {
-    padding: 1px 256px;
+    padding: 1px 128px;
   }
 `
 
@@ -45,7 +45,6 @@ const Title = styled.h3`
 
   @media ${breakpoints.sm}{
     font-size: 28px;
-
   }
 `
 
@@ -62,7 +61,11 @@ const LinkA = styled.a`
     text-decoration: underline;
   }
 
-  @media ${breakpoints.sm}{
+  @media ${breakpoints.md}{
+    padding: 2px 16px;
+  }
+
+  @media ${breakpoints.lg}{
     font-size: 18px;
     padding: 2px 32px;
   }
@@ -70,7 +73,7 @@ const LinkA = styled.a`
 
 const NavLink = styled(LinkA)`
   display: none;
-  @media ${breakpoints.sm} {
+  @media ${breakpoints.md} {
     display: inline;
   }
 `
@@ -106,7 +109,7 @@ const MenuIcon = styled.a`
 
   padding: 12px;
 
-  @media ${breakpoints.sm} {
+  @media ${breakpoints.md} {
     display: none;
   }
 
@@ -139,22 +142,23 @@ const Menu = styled.div`
   left:0;
   right:0;
   max-height: ${props => props.isMenuOpen ? '216px' : '0'};
-
-  background: ${props => props.scrollY > 0 ? "#ffffffee" : "#ffffff00" };
-  transition: background .5s, max-height .5s;
+  background: ${props => props.isMenuOpen ? "#ffffffee" : "#ffffff00" };; 
+  transition: all .5s;
 
   overflow: hidden;
 
-  @media ${breakpoints.sm} {
+  @media ${breakpoints.md} {
     display: none;
   }
 `
 
 const MenuLink = styled(NavLink)`
   display: block;
+  color: ${props => props.isMenuOpen ? "inherit" : "#00000000" };; 
+  transition: all .5s;
   font-size: 18px;
   margin: 0 22px 6px;
-
+  transition: all .5s;
 `
 
 
@@ -192,12 +196,12 @@ const Header = ({items, isHomepage}) => {
   }, [setMenuOpen, isMenuOpen])
 
   return (
-    <Main scrollY={scrollY}>
+    <Main isMenuOpen={isMenuOpen} scrollY={scrollY}>
 
-      {isHomepage && <Title onClick={scrollToTop}>Jonas Høyer</Title>}
+      {isHomepage && <Title onClick={scrollToTop}>Jonas R Høyer</Title>}
 
       {!isHomepage && <Link href="/">
-        <Title>Jonas Høyer</Title>
+        <Title>Jonas R Høyer</Title>
       </Link>}
 
       <FlexSpacer />
@@ -214,9 +218,9 @@ const Header = ({items, isHomepage}) => {
         <MenuIconLine />
       </MenuIcon>
 
-      <Menu isMenuOpen={isMenuOpen} scrollY={scrollY}>
+      <Menu isMenuOpen={isMenuOpen}>
         {items.map(e => (
-          <MenuLink key={e.name} onClick={_ => scrollToRef(e.ref)}>{e.name}</MenuLink>
+          <MenuLink isMenuOpen={isMenuOpen} key={e.name} onClick={_ => scrollToRef(e.ref)}>{e.name}</MenuLink>
         ))}
       </Menu>
 

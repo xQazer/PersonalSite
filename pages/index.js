@@ -259,11 +259,18 @@ const ButtonText = styled.a`
   color: #fff;
   font-weight:500;
   padding: 8px 32px;
-  margin: 12px 8px;
+  margin: 12px 0;
   border-radius: 6px;
   font-size: 18px;
   text-decoration:none;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 3px 1px -2px;
+
+  transition: all 200ms;
+
+  &:hover {
+    background: #888;
+    color: #eee;
+  }
 `
 
 
@@ -294,6 +301,7 @@ const Index = () => {
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
+        overflow-x: hidden;
       }
     `}</style>
 
@@ -308,7 +316,7 @@ const Index = () => {
 
         </HeaderCenter>
 
-        <HeaderImg src="" />
+        {/* <HeaderImg src="" /> */}
 
         <ShowMoreButton onClick={_=>scrollToRef(refOmMig)} >
           <ShowMoreIcon/>
@@ -318,16 +326,14 @@ const Index = () => {
 
       <PageDiv ref={refOmMig}>
         <PageTitle>Om mig</PageTitle>
-        <BodyText>{`Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Quae possimus officia laudantium in maxime provident distinctio, neque sed repellat voluptatum natus a explicabo hic aliquam aut animi sapiente doloremque ipsa libero autem consequatur consequuntur?
-          Facere quasi deleniti animi vitae placeat numquam quod eligendi magnam, adipisci perferendis! Sunt delectus maxime numquam, natus est ad, earum quos consequatur atque eius animi aliquam blanditiis ab provident rerum, odit esse quasi. Corrupti sint quisquam maiores repellat dolore? Cupiditate quos sit maiores eveniet dicta voluptates ipsam ipsum doloribus impedit quidem! Aliquam voluptas eius, dicta incidunt consectetur qui nostrum, quis inventore, praesentium nobis non sunt laboriosam commodi nesciunt minus? Suscipit, a perferendis. Qui, velit consequuntur excepturi fuga et corporis aliquid, nesciunt obcaecati tenetur facilis quaerat labore ex minima assumenda deleniti, esse maxime.
+        <BodyText>{`Mit navn er Jonas Reitel Høyer, jeg er 20 år gammel og bor i Slagelse. Jeg har for nyligt afsluttet min gymnasiale uddannelse på HTX Slagelse. Mine linjefag på gymnasiet har inkluderet matematik, fysik og teknikfag på A niveau. Jeg er meget matematisk-logisk tænkende. Jeg har været interesseret i programmering siden jeg var 7 år gammel og har målrettet udvidet mine kompetencer indenfor dette felt. 
         `}</BodyText>
-        <ButtonText href='/static/cv_test.pdf' target='_blank'>Vis CV</ButtonText>
       </PageDiv>
 
       <PageDiv ref={refSkills} whiteBackground>
         <PageTitle>Kompetencer og evner</PageTitle>
-        <BodyText>{`Programming har interesseret mig siden en ung alder. Jeg started at udvikle spil i Gamemaker, men skifte til Unity. Jeg har brugt Unity siden 2014, over 5 års erfaring med C# og Unity. Jeg har udviklet for web siden 2016, med basal HTML, CSS og JS. Jeg skifte hurtigt to React og Node, og har over 2 år erfaring.`}</BodyText>
+        <BodyText>{`Programmering har interesseret mig siden jeg var ganske lille. Jeg startede at udvikle spil i Gamemaker, mens jeg gik i grundskolens første klasser. Senere skiftede jeg til Unity. Jeg har brugt Unity siden 2014 og har dermed over 5 års erfaring med C# og Unity. Jeg har udviklet websider siden 2016, først med basal HTML, CSS og JS, senere med React og Node, som jeg har mere end 2 års erfaring med.
+        `}</BodyText>
         <FlexRow>
           <FlexCol>
             <SubtitleText>Frontend</SubtitleText>
@@ -352,20 +358,20 @@ const Index = () => {
             `}</BodyText>
           </FlexCol>
         </FlexRow>
+        {/* <ButtonText href='/static/cv_test.pdf' target='_blank'>Vis CV</ButtonText> */}
       </PageDiv>
 
       <PageDiv ref={refProjekter}>
         <PageTitle>Projekter</PageTitle>
         <Project title="Zelt Studio" img="/static/zeltstudio-web.png" link="https://zeltstudio.com">
-          <ProjectBodyText>{`Jeg har udviklet og udgivet mobile spil under navnet Zelt Studio, siden 2017. Spillene er udviklet med Unity og C# bliver brugt som kodesprog. Forskellige SDK er også integreret i de spillene, som f.eks. Google's Firebase SDK for tracking.
-          
-            Apps er udviklet med Unity C#.
-            Webside lavet med HTML, CSS og Javascript.
+          <ProjectBodyText>{`Jeg udvikler og udgiver mobilspil under navnet Zelt Studio. Spillene bliver udviklet med Unity, og C# bliver brugt som kodesprog. Forskellige SDK er også integreret i spilenel, som f.eks. Google's Firebase SDK for tracking.
+
+          Apps er udviklet med Unity C#. Webside lavet med HTML, CSS og Javascript.
           `}</ProjectBodyText>
         </Project>
 
         <Project title="Snapdrev" img="/static/snapdrev-web.png" link="https://github.com/xQazer/SnapDrev">
-          <ProjectBodyText>{`Snapdrev er et backup program, der gemmer mapper og filer. Snapdrev gemmer alle filer i skyen, som er zipped og krypteret med AES. SnapDrev bliver kunne brugt til personligt behov, men er lavet til kommerciel brug, med system for at betal efter brug af service, og login system ved brug af jwt.
+          <ProjectBodyText>{`SnapDrev er et backup-program, der gemmer mapper og filer. SnapDrev gemmer alle filer i skyen, som er zipped og krypteret med AES. SnapDrev bliver kun brugt til personligt behov, men er lavet til kommerciel brug, med system for at betale efter brug af service, og login-system ved brug af JWT.
 
             Frontend: ReactJS.
             Backend: NodeJS, MongoDB.
@@ -375,7 +381,7 @@ const Index = () => {
         </Project>
 
         <Project title="Exec Lux" img="/static/execlux-web.png" link="https://github.com/xQazer/ExecLux">
-          <ProjectBodyText>{`Exec Lux styrer noter, todos, times forbrug og kodeord. Alt data bliver kryptert med AES. Projekt bruges kun til personligt, som project og kodeord manager.
+          <ProjectBodyText>{`Exec Lux styrer noter, to-dos, tidsforbrug og kodeord. Alt data bliver krypteret med AES. Projektet bruges kun personligt, som projekt- og kodeordmanager.
 
             Frontend: ReactJS.
             Backend: NodeJS, MongoDB.

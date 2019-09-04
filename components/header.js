@@ -162,22 +162,12 @@ const MenuLink = styled(NavLink)`
 `
 
 
-const Header = ({items, isHomepage}) => {
+const Header = ({items, isHomepage, scrollToRef, scrollToTop}) => {
 
   const [scrollY,setScrollY] = React.useState(0);
   const [isMenuOpen, setMenuOpen] = React.useState(false);
 
-  
-
-  const scrollToTop = () =>
-    window.scrollTo({left: 0, top: 0, behavior:'smooth'});
-
-  const scrollToRef = (ref) => {
-    const offsetTop = ref.current.offsetTop - 66;
-    window.scrollTo({left: 0, top: offsetTop, behavior:'smooth'});
-  }
-
-  React.useEffect(()=>{
+    React.useEffect(()=>{
     setScrollY(window.scrollY);
   }, []);
 

@@ -1,0 +1,23 @@
+{
+  "pageHeader":{
+    "subtile":"Selvlært fullstack programmør"
+  },
+  "aboutMe":{
+    "title":"Om mig",
+    "navTile":"Om mig",
+    "body":"Mit navn er Jonas Reitel Høyer, jeg er 20 år gammel og bor i Slagelse. Jeg har for nyligt afsluttet min gymnasiale uddannelse på HTX Slagelse. Mine linjefag på gymnasiet har inkluderet matematik, fysik og teknikfag på A niveau. Jeg er meget matematisk-logisk tænkende. Jeg har været interesseret i programmering siden jeg var 7 år gammel og har målrettet udvidet mine kompetencer indenfor dette felt."
+  },
+  "skills":{
+    "title":"Kompetencer og evner",
+    "navTile":"Kompetencer",
+    "body":"Programmering har interesseret mig siden jeg var ganske lille. Jeg startede at udvikle spil i Gamemaker, mens jeg gik i grundskolens første klasser. Senere skiftede jeg til Unity. Jeg har brugt Unity siden 2014 og har dermed over 5 års erfaring med C# og Unity. Jeg har udviklet websider siden 2016, først med basal HTML, CSS og JS, senere med React og Node, som jeg har mere end 2 års erfaring med.",
+    "other":"Andet"
+  },
+  "projects":{
+    "title":"Projekter",
+    "navTile":"Projekter",
+    "zeltStudioBody":"Jeg udvikler og udgiver mobilspil under navnet Zelt Studio. Spillene bliver udviklet med Unity, og C# bliver brugt som kodesprog. Forskellige SDK er også integreret i spilenel, som f.eks. Google's Firebase SDK for tracking.\n\nApps er udviklet med Unity C#.\nWebside lavet med HTML, CSS og Javascript.",
+    "snapDrevBody":"SnapDrev er et backup-program, der gemmer mapper og filer. SnapDrev gemmer alle filer i skyen, som er zipped og krypteret med AES. SnapDrev bliver kun brugt til personligt behov, men er lavet til kommerciel brug, med system for at betale efter brug af service, og login-system ved brug af JWT.\n\nFrontend: ReactJS.\nBackend: NodeJS, MongoDB.\nUnderstøttelse for Google cloud storage.\nDesktop App: ElectronJS, ReactJS.",
+    "execLuxBody":"Exec Lux styrer noter, to-dos, tidsforbrug og kodeord. Alt data bliver krypteret med AES. Projektet bruges kun personligt, som projekt- og kodeordmanager.\n\nFrontend: ReactJS.\nBackend: NodeJS, MongoDB."
+  }
+}
